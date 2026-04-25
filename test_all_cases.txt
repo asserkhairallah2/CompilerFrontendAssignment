@@ -1,0 +1,47 @@
+// ================================
+// Test 1: Valid arithmetic + variables
+// Expected runtime output: 8, 16
+// ================================
+
+x = 5
+y = 3
+print x + y
+print (x + y) * 2
+
+// ================================
+// Test 2: Semantic error - undefined variable
+// Expected semantic error for z
+// ================================
+
+x = 7
+print z
+print x + z
+
+// ================================
+// Test 3: Semantic error - division by zero
+// Expected semantic error: division by zero
+// ================================
+
+x = 10
+print x / 0
+
+// ================================
+// Test 4: Bonus control flow (if + while)
+// Expected runtime output from this section: 4, 5
+// ================================
+
+x = 4
+y = 2
+if (x > y) print x
+while (y < 5) {
+    y = y + 1
+}
+print y
+
+// ================================
+// Test 5: Bonus semantic check - identifier length
+// Expected semantic error for long identifier
+// ================================
+
+very_long_variable_name_abcdefghijklmnopqrstuvwxyz_0123456789_aaaa = 1
+print very_long_variable_name_abcdefghijklmnopqrstuvwxyz_0123456789_aaaa
