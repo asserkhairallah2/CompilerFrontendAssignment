@@ -7,7 +7,6 @@ This folder is prepared as a clean submission package with only the core files n
 - `project.l`: Lexer rules (Flex)
 - `project.y`: Parser + semantic actions + optional bonus code generation (Bison + C)
 - `test_all_cases.txt`: One combined test file that includes all important test scenarios
-- `CLAUDE_PDF_PROMPT.md`: Ready prompt to generate the final report PDF with Claude
 
 ## 1) Install Requirements (Debian/Ubuntu)
 
