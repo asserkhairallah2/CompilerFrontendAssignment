@@ -1,23 +1,55 @@
-# Compiler Front-End Submission Guide
+# Compiler Front-End Project
 
-This folder is prepared as a clean submission package with only the core files needed for evaluation.
+This project is a student-level compiler front-end built using Flex and Bison.
+It supports lexical analysis, syntax analysis, semantic checks, and execution of a mini language.
 
-## Files in this folder
+## Project Summary
 
-- `project.l`: Lexer rules (Flex)
-- `project.y`: Parser + semantic actions + optional bonus code generation (Bison + C)
-- `test_all_cases.txt`: One combined test file that includes all important test scenarios
+The language supports:
 
-## 1) Install Requirements (Debian/Ubuntu)
+- Arithmetic expressions: +, -, *, /
+- Variables and assignment
+- print statements
+- Conditional execution with if
+- Repetition with while
+
+Semantic error handling includes:
+
+- Undefined variable usage
+- Division by zero
+- Identifier length validation (bonus semantic check)
+
+Bonus feature:
+
+- Simple three-address Intermediate Representation (IR) generation in ir_output.txt
+
+## Technologies Used
+
+- Flex (Lex) for tokenization
+- Bison (Yacc) for parsing
+- C actions inside Bison grammar for execution and semantic checks
+
+## Files
+
+- project.l: Lexer rules
+- project.y: Parser grammar + semantic actions + runtime execution
+- test_all_cases.txt: Combined test input that includes valid and error scenarios
+- ir_output.txt: Generated IR output after running the program
+- Compiler_FrontEnd_Report.pdf: Final project report
+- Photo_1.png: Installation/build screenshot
+- Photo_2.png: Code screenshot
+- Photo_3.png: Runtime output screenshot
+
+## Installation (Debian/Ubuntu)
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y flex bison gcc
 ```
 
-## 2) Build
+## Build Steps
 
-Run these commands inside this folder:
+Run inside this folder:
 
 ```bash
 bison -d project.y
@@ -25,22 +57,29 @@ flex project.l
 gcc project.tab.c lex.yy.c -o project -lfl
 ```
 
-## 3) Run (Combined Test File)
+## Run
+
+Use the combined test file:
 
 ```bash
 ./project < test_all_cases.txt
 ```
 
-This run may end with a non-zero exit code because the file intentionally includes error cases.
+Note:
+- This file intentionally contains semantic error cases.
+- Because of that, the program may finish with a non-zero exit code.
 
-## 4) Check Optional Bonus IR Output
-
-If the run is successful enough to generate IR, this file is created:
+## Check Generated IR (Bonus)
 
 ```bash
 cat ir_output.txt
 ```
 
-## 5) Quick Run with Only Valid Statements (Optional)
+## Quick Verification
 
-If you want a clean success run, use only the valid sections from `test_all_cases.txt` in a temporary input file.
+Expected valid outputs from the valid sections include:
+
+- 8
+- 16
+- 4
+- 5
